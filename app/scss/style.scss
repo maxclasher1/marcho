@@ -1,6 +1,7 @@
 @import 'vars';
 @import 'fonts';
 @import 'reset';
+@import 'libs';
 @import 'global';
 
 .header {
@@ -18,7 +19,7 @@
     display: flex;
   }
 
-  &__list-item + .menu__list-item {
+  &__list-item+.menu__list-item {
     padding-left: 35px;
   }
 
@@ -27,6 +28,7 @@
     padding-bottom: 0 2px 1px;
     transition: all .3s;
     @extend %roboto-400;
+
     &:hover {
       color: $accent;
       border-bottom: 1px solid $accent;
@@ -43,10 +45,12 @@
 
 .user-nav {
   display: flex;
+
   &__link {
     position: relative;
   }
-  &__link + .user-nav__link{
+
+  &__link+.user-nav__link {
     padding-left: 25px;
   }
 
@@ -73,6 +77,7 @@ footer {
   padding: 70px 0 40px;
   border-bottom: 1px solid #ececec;
   display: flex;
+
   &__contact {
     width: 250px;
     margin-right: 50px;
@@ -105,12 +110,13 @@ footer {
     margin-top: 30px;
   }
 
-  &__social-item + .footer-top__social-item {
+  &__social-item+.footer-top__social-item {
     padding-left: 18px;
   }
 
   &__social-link {
     transition: all .3s;
+
     path {
       fill: $default
     }
@@ -144,29 +150,24 @@ footer {
   }
 
   &__form-input {
-      background-color: rgb(255, 255, 255);
-      box-shadow: 0px 7px 20px 0px rgba(192, 192, 192, 0.3);
-      border: none;
-      padding: 12px 10px 12px 15px;
-      max-width: 320px;
-      width: 100%;
-      margin-right: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 7px 20px 0px rgba(192, 192, 192, 0.3);
+    border: none;
+    padding: 12px 10px 12px 15px;
+    max-width: 320px;
+    width: 100%;
+    margin-right: 10px;
+    color: $default;
+
+    &::placeholder {
       color: $default;
-      &::placeholder {
-        color: $default;
-        font-size: 16px;
-      }
+      font-size: 16px;
+    }
   }
 
   &__form-btn {
-    box-shadow: 0px 7px 20px 0px rgba(255, 17, 48, 0.3);
+    @extend %btn;
     border: none;
-    padding: 12px 26px;
-    background-color:$accent;
-    color: #fff;
-    text-transform: uppercase;
-    max-width: 140px;
-    width: 100%; 
     cursor: pointer;
   }
 }
@@ -188,6 +189,88 @@ footer {
   }
 }
 
+.top-slider {
+  background-image: url('../images/slider-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $bg;
+  padding-top: 65px;
+  padding-bottom: 45px;
+
+  &__container {
+    max-width: 1560px;
+  }
+
+  &__content {
+    padding-left: 175px;
+    padding-top: 125px;
+  }
+
+  &__item {
+    display: flex !important;
+    justify-content: space-between;
+  }
+
+  &__title {
+    max-width: 670px;
+    @extend %roboto-700;
+    font-size: 58px;
+    color: $title;
+    line-height: 68px;
+    text-align: left;
+    margin-bottom: 35px;
+  }
+
+  &__text {
+    max-width: 470px;
+    margin-bottom: 55px;
+  }
+
+  &__link {
+    @extend %btn;
+    padding: 14px 36px;
+  }
+
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: -70px;
+    li {
+      padding: 0 5px;
+      line-height: 0;
+      button {
+        padding: 0;
+        font-size: 0;
+        background-color: transparent;
+        width: 26px;
+        height: 26px;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: $default;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      &.slick-active {
+        button {
+          border-color: $accent;
+          &::before {
+            background-color: $accent;
+          }
+        }
+      }
+    }
+  }
+}
 
 
 
