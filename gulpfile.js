@@ -11,7 +11,8 @@ const browserSync   = require('browser-sync').create();
 function browsersync() {
   browserSync.init({
     server: {
-      baseDir: 'app/'
+      baseDir: 'app/',
+      online: false
     },
     notify: false
   })
