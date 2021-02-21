@@ -794,7 +794,7 @@ footer {
   &__link--active {
     color: $accent;
     @extend %roboto-700;
-  }  
+  }
 
   &__lable {
     margin-bottom: 30px;
@@ -831,6 +831,44 @@ footer {
 
   &__text {
     margin-bottom: 25px;
+  }
+}
+
+.page-404 {
+  padding: 110px 0 120px;
+
+  &__content {
+    max-width: 570px;
+    width: 100%;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    @extend %roboto-700;
+    font-size: 48px;
+    line-height: 26px;
+    color: #28384f;
+  }
+
+  &__text {
+    max-width: 456px;
+  }
+
+  &__link {
+    @extend %roboto-400;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 19px 35px;
+    background-color: #fe3e57;
+    box-shadow: 0px 5px 25px 0px;
+    margin-top: 59px;
+    display: inline-block;
   }
 }
 
